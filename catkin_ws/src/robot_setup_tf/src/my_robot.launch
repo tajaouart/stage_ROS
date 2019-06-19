@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<launch>
+
+  <arg name="paused" default="false"/>
+  <arg name="use_sim_time" default="true"/>
+  <arg name="gui" default="true"/>
+  <arg name="headless" default="false"/>
+  <arg name="debug" default="false"/>
+
+<!-- lancer le node qui va publier les tf-->
+<node name="tf_broadcaster" type="tf_broadcaster" pkg="robot_setup_tf" output="screen" />
+
+<!--node publie fake laser scan pour tester -->
+<!--node name="scan_publisher" type="scan_publisher" pkg="robot_setup_tf" output="screen" /-->
+
+<!-- node publie odometry-->
+<node name="odom_publisher" type="odom_publisher" pkg="robot_setup_tf" output="screen" />
+
+<!-- node change le nom du topic "/cmd_vel" en "/mavros/setpoint_velocity/cmd_vel_unstamped" -->
+<node name="change_cmv_vel_topic_name" type="change_cmv_vel_topic_name" pkg="robot_setup_tf" output="screen" />
+
+
+<!-- publier tf entre base_link et velodyne-->
+<!--node pkg="tf" type="static_transform_publisher" name="map_velodyne" args="0 0 0 0 0 0 /base_link /velodyne 100"  /-->
+
+
+<!-- lancer Lidar-->
+<!--include file="$(find velodyne_pointcloud)/launch/VLP16_points.launch"/-->
+
+
+
+
+<!-- lancer la pile de navigation-->
+<include file="$(find teb_local_planner_tutorials)/launch/dyn_obst_costmap_conversion.launch"/>
+
+
+<!-- lancer MapViz-->
+<node name="mapviz" type="mapviz" pkg="mapviz" output="screen" />
+
+
+
+
+</launch>

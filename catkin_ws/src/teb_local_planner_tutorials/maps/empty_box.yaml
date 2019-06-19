@@ -1,0 +1,6 @@
+image: aytre2.pgm
+resolution: 2.30000
+origin: [-1450, -1200.0, 0.0]
+negate: 0
+occupied_thresh: 0.1
+free_thresh: 0.01
