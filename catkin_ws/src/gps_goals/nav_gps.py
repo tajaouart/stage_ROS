@@ -33,6 +33,16 @@ def DMS_to_decimal_format(lat,long):
   rospy.loginfo('Given GPS goal: lat %s, long %s.' % (lat, long))
   return lat, long
 
+
+def get_lat_long_from_string(string):
+  lat = 0
+  long = 0
+  if ',' in string:
+    lat, long = string.split(',')
+  lat = float(lat)
+  long = float(long)
+  return lat, long
+
 def get_origin_lat_long():
   # Get the lat long coordinates of our map frame's origin which must be publshed on topic /local_xy_origin. We use this to calculate our goal within the map frame.
   ##rospy.loginfo("Waiting for a message to initialize the origin GPS location...")
@@ -126,35 +136,20 @@ class GpsGoal():
     if status:
       rospy.loginfo(status)
 
-@click.command()
-@click.option('--lat_1', prompt='Latitude_1', help='Latitude')
-@click.option('--long_1', prompt='Longitude_1', help='Longitude')
-@click.option('--lat_2', prompt='Latitude_2', help='Latitude')
-@click.option('--long_2', prompt='Longitude_2', help='Longitude')
-@click.option('--lat_3', prompt='Latitude_3', help='Latitude')
-@click.option('--long_3', prompt='Longitude_3', help='Longitude')
-@click.option('--roll', '-r', help='Set target roll for goal', default=0.0)
-@click.option('--pitch', '-p', help='Set target pitch for goal', default=0.0)
-@click.option('--yaw', '-y', help='Set target yaw for goal', default=0.0)
-def cli_main(lat_1, long_1,lat_2, long_2,lat_3, long_3, roll, pitch, yaw):
-  """Send goal to move_base given latitude and longitude
-  \b
-  Two usage formats:
-  gps_goal.py --lat_1 43.658 --long_1 -79.379 # decimal format
-  gps_goal.py --lat 43,39,31 --long -79,22,45 # DMS format
-  """
-  gpsGoal1 = GpsGoal();
-  # Check for degrees, minutes, seconds format and convert to decimal
-  lat_1, long_1 = DMS_to_decimal_format(lat_1, long_1)
-  gpsGoal1.do_gps_goal(lat_1, long_1, roll=roll, pitch=pitch, yaw=yaw)
-  #gpsGoal2 = GpsGoal();
-  # Check for degrees, minutes, seconds format and convert to decimal
-  lat_2, long_2 = DMS_to_decimal_format(lat_2, long_2)
-  gpsGoal1.do_gps_goal(lat_2, long_2, roll=roll, pitch=pitch, yaw=yaw)
-  #gpsGoal3 = GpsGoal();
-  # Check for degrees, minutes, seconds format and convert to decimal
-  lat_3, long_3 = DMS_to_decimal_format(lat_3, long_3)
-  gpsGoal1.do_gps_goal(lat_3, long_3, roll=roll, pitch=pitch, yaw=yaw)
+
+def cli_main():
+  nbr_gps_points = input("gps-points number : ")  
+  print'======================================='
+  string_way_points=[]
+  for x in range(nbr_gps_points):
+    p = input('insert gps-point   : ')
+    string_way_points.append(p)
+    print'--------------------'
+  for way_point_string in string_way_points:
+    lat, long = get_lat_long_from_string(way_point_string)
+    gpsGoal = GpsGoal();
+    gpsGoal.do_gps_goal(lat, long, 0, 0, 0)
+  print'end'
   
   
   
