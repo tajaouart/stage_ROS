@@ -1,0 +1,8 @@
+prefix=/home/melodic/Desktop/catkin_ws/devel
+
+Name: teb_local_planner_params
+Description: Description of teb_local_planner_params
+Version: 0.2.3
+Cflags: 
+Libs: -L/home/melodic/Desktop/catkin_ws/devel/lib 
+Requires: 

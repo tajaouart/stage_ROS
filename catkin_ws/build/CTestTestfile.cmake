@@ -1,0 +1,38 @@
+# CMake generated Testfile for 
+# Source directory: /home/melodic/Desktop/catkin_ws/src
+# Build directory: /home/melodic/Desktop/catkin_ws/build
+# 
+# This file includes the relevant testing commands required for 
+# testing this directory and lists subdirectories to be tested as well.
+subdirs("gtest")
+subdirs("gps_umd/gps_umd")
+subdirs("navigation/navigation")
+subdirs("teb_local_planner_params")
+subdirs("teleop_twist_keyboard")
+subdirs("velodyne/velodyne")
+subdirs("velodyne/velodyne_msgs")
+subdirs("navigation/map_server")
+subdirs("gps_umd/gps_common")
+subdirs("gps_umd/gpsd_client")
+subdirs("robot_setup_tf")
+subdirs("mapviz/mapviz")
+subdirs("mapviz/multires_image")
+subdirs("mapviz/mapviz_plugins")
+subdirs("navigation/amcl")
+subdirs("navigation/fake_localization")
+subdirs("mapviz/tile_map")
+subdirs("velodyne/velodyne_driver")
+subdirs("velodyne/velodyne_laserscan")
+subdirs("velodyne/velodyne_pointcloud")
+subdirs("navigation/voxel_grid")
+subdirs("navigation/costmap_2d")
+subdirs("navigation/nav_core")
+subdirs("navigation/base_local_planner")
+subdirs("navigation/carrot_planner")
+subdirs("navigation/clear_costmap_recovery")
+subdirs("navigation/dwa_local_planner")
+subdirs("navigation/move_slow_and_clear")
+subdirs("navigation/navfn")
+subdirs("navigation/global_planner")
+subdirs("navigation/rotate_recovery")
+subdirs("navigation/move_base")

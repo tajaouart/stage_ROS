@@ -31,7 +31,7 @@
 
 
 <!-- lancer la pile de navigation-->
-<include file="$(find teb_local_planner_tutorials)/launch/dyn_obst_costmap_conversion.launch"/>
+<include file="$(find teb_local_planner_params)/launch/dyn_obst_costmap_conversion.launch"/>
 
 
 <!-- lancer MapViz-->
