@@ -139,7 +139,6 @@ class GpsGoal():
 
 
 def cli_main():
-  
   nbr_gps_points = input("gps-points number : ")  
   print'======================================='
   string_way_points=[]
