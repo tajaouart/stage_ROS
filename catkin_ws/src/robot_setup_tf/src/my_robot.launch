@@ -30,6 +30,7 @@
 
 
 <node pkg="tf" type="static_transform_publisher" name="map_fcu" args="0.3 0 0 0 0 0 /map /fcu 100"  />
+<node pkg="tf" type="static_transform_publisher" name="gps_base_link" args="0.3 0 0 0 0 0 /base_link /gps 100"  />
 
 
 
@@ -38,7 +39,8 @@
 <include file="$(find teb_local_planner_params)/launch/dyn_obst_costmap_conversion.launch"/>
 
 
-
+<!-- lancer MapViz-->
+<!--include file="$(find mapviz)/launch/mapviz.launch"/-->
 
 
 
