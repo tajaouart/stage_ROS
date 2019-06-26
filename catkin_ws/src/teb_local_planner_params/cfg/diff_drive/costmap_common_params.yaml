@@ -4,7 +4,7 @@
 #robot_radius: 0.9
 #footprint_padding: 1
 #footprint: [ [0.254, -0.0508], [0.1778, -0.0508], [0.1778, -0.1778], [-0.1905, -0.1778], [-0.254, 0], [-0.1905, 0.1778], [0.1778, 0.1778], [0.1778, 0.0508], [0.254, 0.0508] ]
-footprint: [ [-0.6,-0.25], [0.6,-0.25], [0.6,0.25], [-0.6,0.25] ]
+footprint: [ [-0.8,-0.25], [0.0,-0.25],[1,0], [0.0,0.25], [-0.8,0.25] ]
 
 transform_tolerance: 0.2
 map_type: costmap
@@ -13,9 +13,9 @@ always_send_full_costmap: true
 
 obstacle_layer:
  enabled: true
- obstacle_range: 3.0
+ obstacle_range: 20.0
  raytrace_range: 4.0
- inflation_radius: 0.2
+ inflation_radius: 1 #0.2
  track_unknown_space: true
  combination_method: 1
 

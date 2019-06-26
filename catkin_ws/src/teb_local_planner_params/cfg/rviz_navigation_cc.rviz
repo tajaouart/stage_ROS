@@ -5,15 +5,27 @@ Panels:
     Property Tree Widget:
       Expanded:
         - /Global Options1
+        - /Grid1
+        - /Map1
+        - /Local Planner1
         - /Local Planner1/TebPoses1
         - /Local Planner1/TebMarker1
         - /Local Planner1/LocalPath1
         - /Local Planner1/LocalCostmap1
+        - /Global Planner1
         - /Global Planner1/GlobalPath1
+        - /Global Planner1/GlobalCostmap1
         - /Robot1
+        - /Robot1/Robot Footprint1
+        - /Robot1/LaserScan1
+        - /Robot1/AMCL Particles1
+        - /Robot1/TF1
         - /Robot1/Odometry1
-        - /Obstacle1/Footprint estimation1
-        - /Obstacle1/Marker1
+        - /Robot1/Odometry1/Shape1
+        - /Robot1/Odometry1/Covariance1
+        - /Robot1/Odometry1/Covariance1/Position1
+        - /Robot1/Odometry1/Covariance1/Orientation1
+        - /Obstacle1
       Splitter Ratio: 0.3477477431297302
     Tree Height: 459
   - Class: rviz/Selection
@@ -34,7 +46,7 @@ Panels:
     Experimental: false
     Name: Time
     SyncMode: 0
-    SyncSource: ""
+    SyncSource: LaserScan
 Preferences:
   PromptSaveOnExit: true
 Toolbars:
@@ -93,8 +105,7 @@ Visualization Manager:
           Marker Topic: /move_base/TebLocalPlannerROS/teb_markers
           Name: TebMarker
           Namespaces:
-            RobotFootprintModel: true
-            TebContainer: true
+            {}
           Queue Size: 100
           Value: true
         - Alpha: 1
@@ -196,7 +207,7 @@ Visualization Manager:
           Max Color: 255; 255; 255
           Max Intensity: 100
           Min Color: 0; 0; 0
-          Min Intensity: 1
+          Min Intensity: 2
           Name: LaserScan
           Position Transformer: XYZ
           Queue Size: 10
@@ -234,7 +245,13 @@ Visualization Manager:
               Value: true
             base_link:
               Value: true
-            laser_frame:
+            fcu:
+              Value: true
+            fcu_frd:
+              Value: true
+            local_origin:
+              Value: true
+            local_origin_ned:
               Value: true
             map:
               Value: true
@@ -251,19 +268,19 @@ Visualization Manager:
             odom:
               base_footprint:
                 base_link:
-                  laser_frame:
-                    {}
+                  map:
+                    fcu:
+                      fcu_frd:
+                        {}
                   velodyne:
                     {}
-              map:
-                {}
           Update Interval: 0
           Value: true
         - Angle Tolerance: 0.10000000149011612
           Class: rviz/Odometry
           Covariance:
             Orientation:
-              Alpha: 0.5
+              Alpha: 0.10000000149011612
               Color: 255; 255; 127
               Color Style: Unique
               Frame: Local
@@ -274,7 +291,7 @@ Visualization Manager:
               Alpha: 0.30000001192092896
               Color: 204; 51; 204
               Scale: 1
-              Value: true
+              Value: false
             Value: true
           Enabled: true
           Keep: 1
@@ -290,7 +307,7 @@ Visualization Manager:
             Shaft Length: 1
             Shaft Radius: 0.05000000074505806
             Value: Arrow
-          Topic: /odom
+          Topic: /mavros/global_position/local
           Unreliable: false
           Value: true
       Enabled: true
@@ -319,7 +336,7 @@ Visualization Manager:
   Global Options:
     Background Color: 46; 52; 54
     Default Light: true
-    Fixed Frame: map
+    Fixed Frame: base_link
     Frame Rate: 30
   Name: root
   Tools:
@@ -343,16 +360,16 @@ Visualization Manager:
   Views:
     Current:
       Class: rviz/Orbit
-      Distance: 9.075410842895508
+      Distance: 3.7908058166503906
       Enable Stereo Rendering:
         Stereo Eye Separation: 0.05999999865889549
         Stereo Focal Distance: 1
         Swap Stereo Eyes: false
         Value: false
       Focal Point:
-        X: 1.9566478729248047
-        Y: -1.1676634550094604
-        Z: 0.2049155831336975
+        X: 0.639947235584259
+        Y: 0.008580127730965614
+        Z: 0.17006485164165497
       Focal Shape Fixed Size: true
       Focal Shape Size: 0.05000000074505806
       Invert Z Axis: false
@@ -361,7 +378,7 @@ Visualization Manager:
       Pitch: 1.5697963237762451
       Target Frame: <Fixed Frame>
       Value: Orbit (rviz)
-      Yaw: 2.943093776702881
+      Yaw: 3.1562702655792236
     Saved: ~
 Window Geometry:
   Displays:
@@ -379,5 +396,5 @@ Window Geometry:
   Views:
     collapsed: true
   Width: 1389
-  X: 100
-  Y: 291
+  X: 81
+  Y: 27

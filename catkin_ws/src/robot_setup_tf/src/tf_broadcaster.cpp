@@ -9,6 +9,7 @@ int main(int argc, char** argv){
 
   tf::TransformBroadcaster broadcaster1;
   tf::TransformBroadcaster broadcaster2;
+  tf::TransformBroadcaster broadcaster3;
 
   while(n.ok()){
 
@@ -17,10 +18,9 @@ int main(int argc, char** argv){
         tf::Transform(tf::Quaternion(0, 0, 0, 1), tf::Vector3(0.0, 0.0, 0.2)),
         ros::Time::now(),"base_footprint", "base_link"));
 
-    broadcaster2.sendTransform(
-      tf::StampedTransform(
-        tf::Transform(tf::Quaternion(0, 0, 0, 1), tf::Vector3(0.0, 0.0, 0.2)),
-        ros::Time::now(),"base_link", "laser_frame"));
+  
+
+
 
 
 

@@ -205,10 +205,20 @@ add_executable(tf_listener src/tf_listener.cpp)
 add_executable(scan_publisher src/scan_publisher.cpp)
 add_executable(odom_publisher src/odom_publisher.cpp)
 add_executable(change_cmv_vel_topic_name src/change_cmv_vel_topic_name.cpp)
+add_executable(tf_odom_publisher src/tf_odom_publisher.cpp)
 
 target_link_libraries(tf_broadcaster ${catkin_LIBRARIES})
 target_link_libraries(tf_listener ${catkin_LIBRARIES})
 target_link_libraries(scan_publisher ${catkin_LIBRARIES})
 target_link_libraries(change_cmv_vel_topic_name ${catkin_LIBRARIES})
-
 target_link_libraries(odom_publisher ${catkin_LIBRARIES})
+target_link_libraries(tf_odom_publisher ${catkin_LIBRARIES})
+
+
+
+
+
+
+
+
+
